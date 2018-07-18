@@ -1,0 +1,34 @@
+<h2>Employee</h2>
+<hr>
+<p>
+    <a [routerLink]="['/empstore']" class="btn btn-primary">Back to List</a>
+</p>
+<form #f="ngForm" (ngSubmit)="submit()">
+     <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" class="form-control" [(ngModel)]="empstore.name" name="name" required #name="ngModel">
+    <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Please Enter Name</div>
+  </div>
+
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" id="city" class="form-control" [(ngModel)]="empstore.city"  name="city" required #city="ngModel">
+    <div class="alert alert-danger" *ngIf="city.touched && !city.valid">Please enter city.</div>
+  </div>
+
+  <div class="form-group">
+    <label for="department">Department</label>
+    <input type="text" id="department" class="form-control" [(ngModel)]="empstore.department" name="department" required #department="ngModel">
+    <div class="alert alert-danger" *ngIf="department.touched && !department.valid">Please enter Author Name</div>
+  </div>
+
+  <div class="form-group">
+    <label for="salary">Salary</label>
+    <input type="number" id="salary" class="form-control" [(ngModel)]="empstore.salary" name="salary" required #salary="ngModel">
+    <div class="alert alert-danger" *ngIf="salary.touched && !salary.valid">Please enter salary</div>
+  </div>
+
+    <input type="submit" class="btn btn-primary" [disabled]="!f.valid" value="Add" />
+    <input type="button" class="btn btn-danger" value="Delete" (click)="delete()" *ngIf="empstore.id" />
+</form>
+  

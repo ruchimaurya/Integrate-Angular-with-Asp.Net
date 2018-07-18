@@ -1,0 +1,33 @@
+
+<h2>Employee</h2>
+<hr>
+<p>
+  <a [routerLink]="['/empstore/0']" class="btn btn-primary">New Employee</a>
+</p>
+<table class="table">
+    <thead>
+      <tr>
+          <th>Sr.</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of empstores">
+            <td>{{ b.id }}</td>
+            <td>{{ b.name }}</td>
+            <td>{{ b.city }}</td>
+            <td>{{ b.department }}</td>
+            <td>{{ b.salary }}</td>
+            <td>
+                <button type="button" class="btn">
+              <a [routerLink]="['/empstore/', b.id]">Edit</a>
+              </button>
+              
+            </td>
+          </tr>
+    </tbody>
+</table>
